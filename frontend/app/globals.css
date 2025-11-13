@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 193 95% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 193 95% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 193 95% 50%;
+
+    --radius: 0.75rem;
+
+    /* Brand colors */
+    --brand-cyan: 193 95% 50%;
+    --brand-blue: 220 90% 56%;
+    --brand-dark: 0 0% 5%;
+    
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(193 95% 50%), hsl(220 90% 56%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(193 95% 50% / 0.3);
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 193 95% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 193 95% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 193 95% 50%;
+  }
+}
+
+@layer base {
+  /* REMOVE THIS:
+  * {
+    @apply border-border;
+  }
+  */
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(193,95%,50%)] to-[hsl(220,90%,56%)];
+  }
+  
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, hsl(0 0% 15% / 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(0 0% 15% / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
