@@ -25,19 +25,19 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://github.com/heymustafa02/zapy"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-secondary/80 border border-border flex items-center justify-center transition-colors"
               >
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://x.com/mallebhari_"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-secondary/80 border border-border flex items-center justify-center transition-colors"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/mustafamallebhari/"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-secondary/80 border border-border flex items-center justify-center transition-colors"
               >
                 <Linkedin className="w-4 h-4" />

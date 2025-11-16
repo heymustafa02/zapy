@@ -5,13 +5,15 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 const FloatingNav = () => {
    const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-
+const pathname = usePathname();
+if (pathname !== "/") return null; 
   useEffect(() => {
     setMounted(true);
   }, []);

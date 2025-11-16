@@ -21,7 +21,7 @@ const HeroSection = () => {
         >
           {/* GitHub Badge */}
           <motion.a
-            href="https://github.com"
+            href="https://github.com/heymustafa02/zapy"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-secondary/60 border border-border hover:bg-secondary hover:border-primary/30 transition-all duration-300 mb-8 group"

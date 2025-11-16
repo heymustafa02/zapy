@@ -295,21 +295,31 @@ function ZapCard({ zap, userId }: { zap: Zap; userId: number }) {
   const router = useRouter();
   const webhookUrl = `${HOOKS_URL}/hooks/catch/${userId}/${zap.id}`;
 
-  const handleTrigger = async () => {
-    try {
-      const testBody = {
-        amount: 123,
-        address: "DEMO_ADDRESS_123",
-        email: "demo@example.com",
-      };
+  // const handleTrigger = async () => {
+  //   try {
+  //     const testBody = {
+  //       amount: 123,
+  //       address: "DEMO_ADDRESS_123",
+  //       email: "demo@example.com",
+  //     };
 
-      await axios.post(webhookUrl, testBody);
-      alert(" Test webhook triggered successfully!");
-    } catch (err) {
-      alert(" Failed to trigger webhook. Check hooks service logs.");
-      console.error(err);
-    }
-  };
+  //     await axios.post(webhookUrl, testBody);
+  //     alert(" Test webhook triggered successfully!");
+  //   } catch (err) {
+  //     alert(" Failed to trigger webhook. Check hooks service logs.");
+  //     console.error(err);
+  //   }
+  // };
+  const handleTrigger = async () => {
+  try {
+    await axios.post(`${BACKEND_URL}/api/v1/test-trigger/${zap.id}`);
+    alert(" Test trigger executed successfully!");
+  } catch (err) {
+    alert(" Failed to test trigger. Check backend logs.");
+    console.error(err);
+  }
+};
+
 
   const copyWebhook = () => {
     navigator.clipboard.writeText(webhookUrl);
