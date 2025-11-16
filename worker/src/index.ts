@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { JsonObject } from "@prisma/client/runtime/library";
 import { Kafka } from "kafkajs";
 import { parse } from "./parser";
-// import { sendEmail } from "./email";
+import { sendEmail } from "./email";
 import { sendSol } from "./solana";
 import { sendEvm, CHAINS, TOKENS, SupportedChain } from "./eth";
 import { sendTelegram } from "./telegram";
@@ -77,7 +77,7 @@ async function main() {
           zapRunMetadata
         );
         console.log(`Sending out email to ${to}, body: ${body}`);
-        // await sendEmail(to, body);
+        await sendEmail(to, body);
       }
       //Telegram action
       // if (currentAction.type.id === "send-telegram") {

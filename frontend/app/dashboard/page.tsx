@@ -304,9 +304,9 @@ function ZapCard({ zap, userId }: { zap: Zap; userId: number }) {
       };
 
       await axios.post(webhookUrl, testBody);
-      alert("✅ Test webhook triggered successfully!");
+      alert(" Test webhook triggered successfully!");
     } catch (err) {
-      alert("❌ Failed to trigger webhook. Check hooks service logs.");
+      alert(" Failed to trigger webhook. Check hooks service logs.");
       console.error(err);
     }
   };
