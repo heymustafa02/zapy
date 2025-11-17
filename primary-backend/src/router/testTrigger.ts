@@ -23,12 +23,19 @@ testTriggerRouter.post("/:zapId", async (req, res) => {
     const webhookUrl = `${process.env.HOOKS_URL}/hooks/catch/${userId}/${zapId}`;
 
     // 3. Dummy test payload
-    const testBody = {
-      amount: 111,
-      address: "TEST_SOLANA_ADDRESS",
-      email: "test@example.com",
-      ts: Date.now(),
-    };
+    // const testBody = {
+    //   amount: 111,
+    //   address: "TEST_SOLANA_ADDRESS",
+    //   email: "test@example.com",
+    //   ts: Date.now(),
+    // };
+    let testBody = req.body;
+
+      // normalize so worker always receives "comment"
+        if (!testBody.comment) {
+       testBody = { comment: testBody };
+        }
+
 
     // 4. POST to hooks service
     await axios.post(webhookUrl, testBody);

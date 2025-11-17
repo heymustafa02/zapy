@@ -63,19 +63,27 @@ async function main() {
         console.log("Current action not found?");
         return;
       }
-
+      const meta =currentAction.metadata as JsonObject;
       const zapRunMetadata = zapRunDetails?.metadata;
 
       // 📧 Email action
       if (currentAction.type.id === "email") {
+        // const body = parse(
+        //   (currentAction.metadata as JsonObject)?.body as string,
+        //   zapRunMetadata
+        // );
+        // const to = parse(
+        //   (currentAction.metadata as JsonObject)?.email as string,
+        //   zapRunMetadata
+        // );
         const body = parse(
-          (currentAction.metadata as JsonObject)?.body as string,
-          zapRunMetadata
-        );
+      typeof meta?.body === "string" ? meta.body : "",
+      zapRunMetadata
+      );
         const to = parse(
-          (currentAction.metadata as JsonObject)?.email as string,
-          zapRunMetadata
-        );
+      typeof meta?.email === "string" ? meta.email : "",
+      zapRunMetadata
+      );
         console.log(`Sending out email to ${to}, body: ${body}`);
         await sendEmail(to, body);
       }
@@ -86,14 +94,23 @@ async function main() {
 
       // 💸 Solana action
       if (currentAction.type.id === "send-sol") {
+        // const amount = parse(
+        //   (currentAction.metadata as JsonObject)?.amount as string,
+        //   zapRunMetadata
+        // );
+        // const address = parse(
+        //   (currentAction.metadata as JsonObject)?.address as string,
+        //   zapRunMetadata
+        // );
         const amount = parse(
-          (currentAction.metadata as JsonObject)?.amount as string,
-          zapRunMetadata
-        );
-        const address = parse(
-          (currentAction.metadata as JsonObject)?.address as string,
-          zapRunMetadata
-        );
+    typeof meta?.amount === "string" ? meta.amount : "",
+    zapRunMetadata
+  );
+
+  const address = parse(
+    typeof meta?.address === "string" ? meta.address : "",
+    zapRunMetadata
+  );
         console.log(`Sending ${amount} SOL to ${address}`);
         await sendSol(address, amount);
       }

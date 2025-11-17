@@ -120,6 +120,7 @@
 //     await prismaClient.$disconnect();
 //   });
 import { PrismaClient } from "@prisma/client";
+import { PrismaClientExtends } from "@prisma/client/extension";
 const prismaClient = new PrismaClient();
 
 async function main() {
@@ -133,6 +134,7 @@ async function main() {
   // ✅ Step 2: Delete parent entities next
   await prismaClient.zap.deleteMany({});
   await prismaClient.user.deleteMany({});
+  
 
   // ✅ Step 3: Delete base tables (lookup tables)
   await prismaClient.availableTrigger.deleteMany({});

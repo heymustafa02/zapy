@@ -11,8 +11,13 @@ const prisma = new PrismaClient();
 router.post("/:zapId", async (req, res) => {
   try {
     const { zapId } = req.params;
-    const metadata = req.body;
+    // const metadata = req.body;
+    let metadata = req.body;
 
+      // Normalize: if payload is not wrapped under "comment", wrap it
+    if (!metadata.comment) {
+       metadata = { comment: metadata };
+        }
     // 1️⃣ Find zap
     const zap = await prisma.zap.findUnique({
       where: { id: zapId },
@@ -26,6 +31,11 @@ router.post("/:zapId", async (req, res) => {
       data: {
         zapId,
         metadata,
+      },
+    });
+    await prisma.zapRunOutbox.create({
+      data: {
+        zapRunId: zapRun.id,
       },
     });
 

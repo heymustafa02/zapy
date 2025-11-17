@@ -11,10 +11,17 @@ app.use(express.json());
 app.post("/hooks/catch/:userId/:zapId", async (req, res) => {
     const userId = req.params.userId;
     const zapId = req.params.zapId;
-    const body = req.body;
+    // const body = req.body;
+     let body = req.body;
+
+    // 🔥 FIX: Normalize payload to always have "comment"
+    if (!body.comment) {
+        body = { comment: body };
+    }
+
 
     // store in db a new trigger
-    await client.$transaction(async tx => {
+    await client.$transaction(async (tx:any) => {
         const run = await tx.zapRun.create({
             data: {
                 zapId: zapId,
