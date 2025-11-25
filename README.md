@@ -26,7 +26,7 @@ Built with modern tooling, Zapy ensures **high scalability, modularity, and real
 ---
 ## 🎥 Demo
 
-<video src="https://github.com/heymustafa02/zapy/releases/tag/v1" controls width="600"></video>
+![Demo](./frontend/public/zapy-demo.gif)
 
 ---
 
@@ -194,4 +194,5 @@ Pull Requests are welcome.
 Follow the existing file structure & TypeScript coding style.
 
 ## 📄 License
+
 MIT License (free to use, modify, distribute)
