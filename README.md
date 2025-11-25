@@ -26,7 +26,9 @@ Built with modern tooling, Zapy ensures **high scalability, modularity, and real
 ---
 ## 🎥 Demo
 
-![Demo](./frontend/public/zapy-demo.gif)
+<p align="center">
+  <img src="./frontend/public/zapy-demo.gif" width="100%" />
+</p>
 
 ---
 
@@ -196,3 +198,4 @@ Follow the existing file structure & TypeScript coding style.
 ## 📄 License
 
 MIT License (free to use, modify, distribute)
+
