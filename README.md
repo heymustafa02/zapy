@@ -26,7 +26,7 @@ Built with modern tooling, Zapy ensures **high scalability, modularity, and real
 ---
 ## 🎥 Demo
 
-<video src="./frontend/public/zapy-demo.mp4" controls width="600"></video>
+<video src="https://github.com/heymustafa02/zapy/releases/tag/v1" controls width="600"></video>
 
 ---
 
