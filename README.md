@@ -1,9 +1,9 @@
-# AutoFlow
+# Zapy
 
-[![GitHub release](https://img.shields.io/github/v/release/heymustafa02/autoflow)](https://github.com/heymustafa02/autoflow/releases)
-[![GitHub issues](https://img.shields.io/github/issues/heymustafa02/autoflow)](https://github.com/heymustafa02/autoflow/issues)
-[![GitHub forks](https://img.shields.io/github/forks/heymustafa02/autoflow)](https://github.com/heymustafa02/autoflow/network)
-[![GitHub stars](https://img.shields.io/github/stars/heymustafa02/autoflow)](https://github.com/heymustafa02/autoflow/stargazers)
+[![GitHub release](https://img.shields.io/github/v/release/heymustafa02/zapy)](https://github.com/heymustafa02/Zapy/releases)
+[![GitHub issues](https://img.shields.io/github/issues/heymustafa02/zapy)](https://github.com/heymustafa02/Zapy/issues)
+[![GitHub forks](https://img.shields.io/github/forks/heymustafa02/zapy)](https://github.com/heymustafa02/Zapy/network)
+[![GitHub stars](https://img.shields.io/github/stars/heymustafa02/zapy)](https://github.com/heymustafa02/Zapy/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
@@ -11,7 +11,7 @@
 
 ## ⭐ Overview
 
-AutoFlow is a scalable, event-driven automation platform inspired by Zapier.  
+Zapy is a scalable, event-driven automation platform inspired by Zapier.  
 It enables workflows that connect:
 
 - 🔗 **Webhooks**
@@ -21,7 +21,12 @@ It enables workflows that connect:
 - 🔄 **Internal microservices**
 
 This system supports **5 independent services**, all communicating via Kafka.  
-Built with modern tooling, AutoFlow ensures **high scalability, modularity, and real-time event streaming**.
+Built with modern tooling, Zapy ensures **high scalability, modularity, and real-time event streaming**.
+
+---
+## 🎥 Demo
+
+<video src="./frontend/public/zapy-demo.mp4" controls width="600"></video>
 
 ---
 
@@ -39,7 +44,7 @@ Execute Solana-based tasks such as wallet notifications & token actions.
 ### 🟦 Ethereum Integration (NEW)  
 **Added by you using Wagmi + Viem**
 
-AutoFlow now supports ETH transfers:
+Zapy now supports ETH transfers:
 - Send ETH directly from the dashboard  
 - Wallet connection using Wagmi  
 - Secure & verified transactions  

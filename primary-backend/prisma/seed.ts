@@ -41,7 +41,6 @@
 //     await prismaClient.$disconnect();
 //   });
 
-
 // import { PrismaClient } from "@prisma/client";
 // const prismaClient = new PrismaClient();
 
@@ -134,7 +133,6 @@ async function main() {
   // ✅ Step 2: Delete parent entities next
   await prismaClient.zap.deleteMany({});
   await prismaClient.user.deleteMany({});
-  
 
   // ✅ Step 3: Delete base tables (lookup tables)
   await prismaClient.availableTrigger.deleteMany({});
@@ -179,6 +177,11 @@ async function main() {
         id: "send-matic",
         name: "Send Polygon (MATIC)",
         image: "https://cryptologos.cc/logos/polygon-matic-logo.png?v=040",
+      },
+      {
+        id: "send-aptos",
+        name: "Send Aptos",
+        image: "https://cryptologos.cc/logos/aptos-apt-logo.png",
       },
       {
         id: "email",

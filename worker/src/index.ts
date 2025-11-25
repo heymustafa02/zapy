@@ -5,7 +5,7 @@ import { JsonObject } from "@prisma/client/runtime/library";
 import { Kafka } from "kafkajs";
 import { parse } from "./parser";
 import { sendEmail } from "./email";
-import { sendSol } from "./solana";
+import { sendSol } from "../../solanad";
 import { sendEvm, CHAINS, TOKENS, SupportedChain } from "./eth";
 import { sendTelegram } from "./telegram";
 

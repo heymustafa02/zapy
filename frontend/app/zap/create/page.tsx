@@ -160,6 +160,13 @@ function Modal({ index, onSelect, availableItems }: { index: number, onSelect: (
                             metadata
                         })
                     }} />}
+                    {(step === 1 && selectedAction?.id === "send-aptos") && <AptosSelector setMetadata={(metadata) => {
+                        onSelect({
+                            ...selectedAction,
+                            metadata
+                        })
+                    }} />}
+                    
 
                     {step === 0 && <div>{availableItems.map(({id, name, image}) => {
                             return <div onClick={() => {
@@ -226,6 +233,75 @@ function SolanaSelector({setMetadata}: {
         </div>
     </div>
 }
+function AptosSelector({ setMetadata }: { setMetadata: (params: any) => void }) {
+  const [amount, setAmount] = useState("");
+  const [address, setAddress] = useState("");
+  const [network, setNetwork] = useState("mainnet");
+  const [token, setToken] = useState("native");
+
+  return (
+    <div>
+      <Input
+        label={"To"}
+        type={"text"}
+        placeholder="Aptos wallet address"
+        onChange={(e) => setAddress(e.target.value)}
+      />
+
+      <Input
+        label={"Amount"}
+        type={"text"}
+        placeholder="Amount"
+        onChange={(e) => setAmount(e.target.value)}
+      />
+
+      {/* Network Select */}
+      <div className="pt-2">
+        <label className="block text-sm text-gray-600 mb-1">Network</label>
+        <select
+          className="border px-3 py-2 rounded-md w-full"
+          value={network}
+          onChange={(e) => setNetwork(e.target.value)}
+        >
+          <option value="mainnet">Mainnet</option>
+          <option value="testnet">Testnet</option>
+          <option value="devnet">Devnet</option>
+        </select>
+      </div>
+
+      {/* Token Select */}
+      <div className="pt-2">
+        <label className="block text-sm text-gray-600 mb-1">Token</label>
+        <select
+          className="border px-3 py-2 rounded-md w-full"
+          value={token}
+          onChange={(e) => setToken(e.target.value)}
+        >
+          <option value="native">APT (Native)</option>
+          <option value="USDC">USDC</option>
+          <option value="USDT">USDT</option>
+        </select>
+      </div>
+
+      {/* Submit */}
+      <div className="pt-4">
+        <PrimaryButton
+          onClick={() =>
+            setMetadata({
+              amount,
+              address,
+              network,
+              token,
+            })
+          }
+        >
+          Submit
+        </PrimaryButton>
+      </div>
+    </div>
+  );
+}
+
 function EthSelector({ setMetadata }: { setMetadata: (params: any) => void }) {
   const [amount, setAmount] = useState("");
   const [address, setAddress] = useState("");
